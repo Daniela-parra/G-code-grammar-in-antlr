@@ -13,3 +13,5 @@ Usa **ANTLR4** para generar un lexer y un parser que identifican instrucciones c
 - **FCODE (F1500, etc.)**
 - **SCODE (S200, etc.)**
 
+## Ejecutar
+-> python test_gcode.py
