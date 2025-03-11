@@ -4,7 +4,7 @@ Este proyecto es un **analizador de código G-code** usando **ANTLR4 en Python**
 
 ##  Descripción
 
-El programa analiza y valida comandos G-code comunes utilizados en **impresoras 3D **.  
+El programa analiza y valida comandos G-code comunes utilizados en ** impresoras 3D **  
 Usa **ANTLR4** para generar un lexer y un parser que identifican instrucciones como:
 
 - **GCODE (G90, G21, etc.)**
