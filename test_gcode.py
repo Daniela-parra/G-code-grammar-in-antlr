@@ -1,4 +1,5 @@
 from antlr4 import *
+import sys
 from gcodeLexer import gcodeLexer
 from gcodeParser import gcodeParser
 from antlr4.error.ErrorListener import ErrorListener
@@ -8,7 +9,10 @@ class MyErrorListener(ErrorListener):
     def syntaxError(self, recognizer, offendingSymbol, line, column, msg, e):
         print(f"Error de sintaxis en línea {line}, columna {column}: {msg}")
 
-def test_gcode(input_text):
+def test_gcode(file_path):
+    with open(file_path, "r", encoding="utf-8") as file:
+        input_text = file.read()
+
     input_stream = InputStream(input_text)
     lexer = gcodeLexer(input_stream)
     token_stream = CommonTokenStream(lexer)
@@ -18,6 +22,7 @@ def test_gcode(input_text):
     parser.addErrorListener(MyErrorListener())
 
     tree = parser.program()
+    print("\n Árbol de análisis sintáctico:")
     print(Trees.toStringTree(tree, None, parser))
     
 
@@ -27,4 +32,7 @@ def test_gcode(input_text):
         print(f"{token.text} -> {token_name}")
 
 if __name__ == "__main__":
-    test_gcode("G90 G21 M03 X50 Y30 Z10 F1500 S200 T1")
+    if len(sys.argv) != 2:
+        print("Uso: python test_gcode.py archivo_prueba.gcode")
+    else:
+        test_gcode(sys.argv[1])
