@@ -13,7 +13,7 @@ Usa **ANTLR4** para generar un lexer y un parser que identifican instrucciones c
 - **FCODE (F1500, etc.)**
 - **SCODE (S200, etc.)**
 
-## Generar 
+## Generar archivos python 
 -> java -jar antlr-4.13.1-complete.jar -Dlanguage=Python3 gcode.g4
 
 ## Ejecutar
