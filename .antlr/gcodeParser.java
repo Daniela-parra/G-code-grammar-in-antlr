@@ -102,14 +102,6 @@ public class gcodeParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_program; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof gcodeListener ) ((gcodeListener)listener).enterProgram(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof gcodeListener ) ((gcodeListener)listener).exitProgram(this);
-		}
 	}
 
 	public final ProgramContext program() throws RecognitionException {
@@ -165,14 +157,6 @@ public class gcodeParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_line; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof gcodeListener ) ((gcodeListener)listener).enterLine(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof gcodeListener ) ((gcodeListener)listener).exitLine(this);
-		}
 	}
 
 	public final LineContext line() throws RecognitionException {
@@ -242,14 +226,6 @@ public class gcodeParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_command; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof gcodeListener ) ((gcodeListener)listener).enterCommand(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof gcodeListener ) ((gcodeListener)listener).exitCommand(this);
-		}
 	}
 
 	public final CommandContext command() throws RecognitionException {
@@ -291,14 +267,6 @@ public class gcodeParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parameter; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof gcodeListener ) ((gcodeListener)listener).enterParameter(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof gcodeListener ) ((gcodeListener)listener).exitParameter(this);
-		}
 	}
 
 	public final ParameterContext parameter() throws RecognitionException {
