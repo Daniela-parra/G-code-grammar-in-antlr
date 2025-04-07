@@ -16,7 +16,7 @@ def process_gcode(file_path):
     input_stream = InputStream(input_text)
     lexer = gcodeLexer(input_stream)
     token_stream = CommonTokenStream(lexer)
-    token_stream.fill()  # Asegurar que todos los tokens se carguen
+    token_stream.fill()  
     
     parser = gcodeParser(token_stream)
     parser.removeErrorListeners()
@@ -30,7 +30,7 @@ def process_gcode(file_path):
         if token.type == lexer.GCODE or token.type == lexer.MCODE or \
            token.type == lexer.TCODE or token.type == lexer.FCODE or \
            token.type == lexer.SCODE:
-            if current_command:  # Guardar el comando anterior
+            if current_command:  
                 commands.append(current_command)
             current_command = {
                 "comando": token.text,
@@ -43,21 +43,20 @@ def process_gcode(file_path):
                 current_command["parametros"].append({
                     "tipo": "parametro",
                     "nombre": token.text,
-                    "valor": None  # Se completará con el siguiente NUMBER
+                    "valor": None  
                 })
         elif token.type == lexer.NUMBER:
             if current_command and current_command["parametros"]:
                 current_command["parametros"][-1]["valor"] = float(token.text) if '.' in token.text else int(token.text)
     
-    if current_command:  # Añadir el último comando
+    if current_command:  
         commands.append(current_command)
 
-    # Generar JSON estructurado
+    # Generar JSON 
     output = {
         "metadata": {
             "archivo": file_path,
-            "total_comandos": len(commands),
-            "versión": "1.1"
+            "total_comandos": len(commands)
         },
         "comandos": commands
     }

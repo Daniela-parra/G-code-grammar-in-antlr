@@ -1,8 +1,7 @@
 {
   "metadata": {
     "archivo": "archivo_prueba.gcode",
-    "total_comandos": 12173,
-    "versión": "1.1"
+    "total_comandos": 12173
   },
   "comandos": [
     {
